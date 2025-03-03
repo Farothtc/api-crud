@@ -1,6 +1,7 @@
 "use client";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
+import { ItemsInd } from "../components/ItemsInd";
 
 export default function Items() {
   const [items, setItems] = useState([]);
@@ -22,12 +23,7 @@ export default function Items() {
       <main className="flex justify-center items-center h-[93dvh]">
         <section className="flex flex-row text-black gap-10">
           {items.map((item, index) => (
-            <>
-              <h5 key={item.id} className="text-black">
-                {item.name}
-              </h5>
-              <img key={index} src={item.image} alt="Image" />
-            </>
+            <ItemsInd key={index} item={item} />
           ))}
         </section>
       </main>
